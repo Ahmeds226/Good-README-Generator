@@ -40,4 +40,6 @@ node index.js
 
 ## Sample README File / Preview:
 
+<img src="./assets/images/preview.png" alt="" />
+
 ## Walkthrough Video
