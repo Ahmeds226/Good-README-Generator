@@ -65,19 +65,6 @@ const questions = () => {
       },
     },
     {
-      type: "input",
-      name: "applicationTest",
-      message: "Please enter the command used for testing the application",
-      validate: (nameInput) => {
-        if (nameInput) {
-          return true;
-        } else {
-          console.log("Please enter the command used to test the application");
-          return false;
-        }
-      },
-    },
-    {
       type: "list",
       name: "applicationLicense",
       message: "What kind of license should your project have?",
@@ -87,6 +74,32 @@ const questions = () => {
           return true;
         } else {
           console.log("Please choose a license");
+          return false;
+        }
+      },
+    },
+    {
+      type: "input",
+      name: "applicationContributors",
+      message: "Please enter the names of any other contributors",
+      validate: (nameInput) => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log("Please enter the names of any other contributors");
+          return false;
+        }
+      },
+    },
+    {
+      type: "input",
+      name: "applicationTest",
+      message: "Please enter the command used for testing the application",
+      validate: (nameInput) => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log("Please enter the command used to test the application");
           return false;
         }
       },
@@ -113,19 +126,6 @@ const questions = () => {
           return true;
         } else {
           console.log("Please enter a valid email address");
-          return false;
-        }
-      },
-    },
-    {
-      type: "input",
-      name: "applicationContributors",
-      message: "Please enter the names of any other contributors",
-      validate: (nameInput) => {
-        if (nameInput) {
-          return true;
-        } else {
-          console.log("Please enter the names of any other contributors");
           return false;
         }
       },
