@@ -43,3 +43,7 @@ node index.js
 <img src="./assets/images/preview.png" alt="" />
 
 ## Walkthrough Video
+
+In the walkthrough video below you can see that in the console I have tested the validation via not entering anything for the description of the application. This then prompt me to enter a description of my application and would not let me advance on with the questions.
+
+https://drive.google.com/file/d/1CocjcO2arm2s_8f60rmjKeeoStRCJuBz/view?usp=sharing
