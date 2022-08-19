@@ -6,37 +6,9 @@ const inquirer = require("inquirer");
 const generatePage = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
-
-// Questions
 const questions = () => {
   // Promting the user with questions via Inquirer
   return inquirer.prompt([
-    {
-      type: "input",
-      name: "userName",
-      message: "Please enter your GitHub username",
-      validate: (nameInput) => {
-        if (nameInput) {
-          return true;
-        } else {
-          console.log("Please enter a valid GitHub username");
-          return false;
-        }
-      },
-    },
-    {
-      type: "input",
-      name: "userEmail",
-      message: "Please enter your email address",
-      validate: (nameInput) => {
-        if (nameInput) {
-          return true;
-        } else {
-          console.log("Please enter a valid email address");
-          return false;
-        }
-      },
-    },
     {
       type: "input",
       name: "applicationName",
@@ -60,20 +32,6 @@ const questions = () => {
         } else {
           console.log("Please enter a description of your applciation");
 
-          return false;
-        }
-      },
-    },
-    {
-      type: "list",
-      name: "applicationLicense",
-      message: "What kind of license should your project have?",
-      choices: ["MIT", "APACHE 2.0", "GPL 3.0", "BSD 3", "None"],
-      validate: (nameInput) => {
-        if (nameInput) {
-          return true;
-        } else {
-          console.log("Please choose a license");
           return false;
         }
       },
@@ -120,6 +78,46 @@ const questions = () => {
       },
     },
     {
+      type: "list",
+      name: "applicationLicense",
+      message: "What kind of license should your project have?",
+      choices: ["MIT", "APACHE 2.0", "GPL 3.0", "BSD 3", "None"],
+      validate: (nameInput) => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log("Please choose a license");
+          return false;
+        }
+      },
+    },
+    {
+      type: "input",
+      name: "userName",
+      message: "Please enter your GitHub username",
+      validate: (nameInput) => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log("Please enter a valid GitHub username");
+          return false;
+        }
+      },
+    },
+    {
+      type: "input",
+      name: "userEmail",
+      message: "Please enter your email address",
+      validate: (nameInput) => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log("Please enter a valid email address");
+          return false;
+        }
+      },
+    },
+    {
       type: "input",
       name: "applicationContributors",
       message: "Please enter the names of any other contributors",
@@ -152,7 +150,16 @@ const writeFile = (data) => {
 };
 
 // TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-init();
+questions()
+  // Gathers the users answers
+  .then((answers) => {
+    return generatePage(answers);
+  })
+  // Displays the users answers onto the page
+  .then((data) => {
+    return writeFile(data);
+  })
+  // Catch any errors
+  .catch((err) => {
+    console.log(err);
+  });
