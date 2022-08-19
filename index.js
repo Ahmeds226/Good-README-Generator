@@ -7,7 +7,7 @@ const generatePage = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
 // Questions
-const input = [
+const questions = [
   {
     type: "input",
     name: "userName",
@@ -57,7 +57,20 @@ const input = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+const writeFile = (data) => {
+  fs.writeFile("README.md", data, (err) => {
+    // Fail
+    if (err) {
+      console.log(err);
+      return;
+      // Success
+    } else {
+      console.log(
+        "Congrats! You have succesfully created a README.md for your application!"
+      );
+    }
+  });
+};
 
 // TODO: Create a function to initialize app
 function init() {}
